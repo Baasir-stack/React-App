@@ -21,3 +21,10 @@ body {
   color: gray;
   background-color: gray;
 }
+
+:where(.css-dev-only-do-not-override-i46qwz).ant-modal .ant-modal-content{
+  padding: 0;
+  /* background: transparent url('/public/assets/Base.png') 0% 0% no-repeat padding-box; */
+  border-radius: 20px;
+}
+

@@ -11,6 +11,7 @@ import { setCustomer } from '../../../../store/customer/customer.slice'
 import { getBase64 } from '../../../../services/_utils'
 import { RcFile, UploadChangeParam, UploadFile } from 'antd/es/upload'
 import AppInput from '../../../../component/form/input'
+import { MainTitle, ModalTitleContainer } from './style'
 
 interface IEditCustomerModal {
   open: boolean
@@ -82,7 +83,12 @@ const EditCustomerModal = ({ open, setOpen, record }: IEditCustomerModal): JSX.E
     <AppModal
       okText='Create'
       open={open}
-      title='Edit Customer'
+      title={
+        
+        <ModalTitleContainer>
+          <MainTitle src='/assets/Sign in.png' />
+        </ModalTitleContainer>
+      }
       onCancel={onCancel}
       footer={null}
       confirmLoading={loading}
@@ -90,6 +96,7 @@ const EditCustomerModal = ({ open, setOpen, record }: IEditCustomerModal): JSX.E
       <Form
         form={form}
         disabled={loading}
+        style={{padding:"1rem"}}
         onFinish={handleSubmit}
         initialValues={{ remember: true }}
       >

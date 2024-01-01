@@ -11,6 +11,7 @@ import { RootState } from '../../../../store'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBase64 } from '../../../../services/_utils'
 import AppInput from '../../../../component/form/input'
+import { MainTitle, ModalTitleContainer } from './style';
 
 interface IAddCustomersModal {
   open: boolean
@@ -62,12 +63,21 @@ const AddCustomersModal = ({ open, setOpen }: IAddCustomersModal): JSX.Element =
     <AppModal
       okText='Create'
       open={open}
-      title='Add New Customer'
-      onCancel={onCancel}
+      title={
+        
+        <ModalTitleContainer>
+           <MainTitle src='/assets/new/Sign in.png' />
+        </ModalTitleContainer>
+      }
+     
+   
+      onCancel={onCancel} 
       footer={null}
       confirmLoading={loading}
     >
+
       <Form
+      style={{padding:"1rem"}}
         form={form}
         onFinish={handleModalSubmit}
         initialValues={{ remember: true }}

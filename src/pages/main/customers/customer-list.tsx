@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AppTable from '../../../component/table'
-import { AiFillEdit } from 'react-icons/ai'
-import { MdDelete } from 'react-icons/md'
+
 import { PlusOutlined } from '@ant-design/icons'
 import { AddButton, CustomerAvatar } from './style'
 import { useGetCustomersQuery } from '../../../services/api'
@@ -10,6 +9,7 @@ import EditCustomerModal from './modal/edit-customer-modal'
 import DeleteCustomerModal from './modal/delete-customer-modal'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../store'
+import { Button } from 'antd'
 
 const CustomerList = (): JSX.Element => {
   const [page] = useState<number | undefined>(1)
@@ -37,9 +37,10 @@ const CustomerList = (): JSX.Element => {
       dataIndex: 'avatar',
       key: 'avatar',
       render: (_: any, record: IKeyValue) => (
-        <CustomerAvatar src={record.avatar} alt='avatar_image' />
+        <CustomerAvatar  src={record.avatar} alt='avatar_image' />
       ),
       width: '10%'
+    
     },
     {
       title: 'Customer ID',
@@ -75,17 +76,35 @@ const CustomerList = (): JSX.Element => {
       dataIndex: 'Action',
       render: (_: any, record: IKeyValue) => (
         <>
-          <AiFillEdit
-            size={20}
-            style={{ marginRight: '10px', cursor: 'pointer' }}
-            onClick={() => handleOpen(record, setEditOpen)}
-          />
+         <Button
+  type="link"
+  style={{
+    backgroundColor: "#39B54A",
+    fontSize:"16px",
+  borderRadius: "5px",
+  opacity: 0.4,
+  marginRight:"1rem"
+  }}
+  onClick={() => handleOpen(record, setEditOpen)}
+>
+  Edit
+</Button>
 
-          <MdDelete
-            size={20}
-            style={{ cursor: 'pointer' }}
-            onClick={() => handleOpen(record, setDeleteOpen)}
-          />
+<Button
+  style={{
+    backgroundColor: "#D80000",
+    color:"#500303",
+    fontSize:"16px",
+  borderRadius: "5px",
+  opacity: 0.4,
+  
+
+  }}
+  type="link"
+  onClick={() => handleOpen(record, setDeleteOpen)}
+>
+  <span style={{color:"black"}}>Delete</span>
+</Button>
         </>
       )
     }

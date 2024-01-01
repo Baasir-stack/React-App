@@ -1,7 +1,7 @@
 import React from 'react'
 import { Col, Row } from 'antd'
-import { LayoutWrapper, Wrapper } from './style'
-import TypoGraphy from '../typography'
+import { LayoutWrapper, MainTitle, Wrapper } from './style'
+
 
 const AppHeader: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const AppHeader: React.FC = () => {
         <Row align={'middle'}>
           <Col span={22}>
             {' '}
-            <TypoGraphy level={2} style={{ color: '#fff' }} value='Customers' />{' '}
+            <MainTitle src="/assets/headerTitle/Sign in.png" alt="Main Title" />
           </Col>
         </Row>
       </LayoutWrapper>

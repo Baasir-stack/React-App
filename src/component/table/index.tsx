@@ -1,5 +1,4 @@
 import { Table } from 'antd'
-import React from 'react'
 
 interface IAppTable {
   columns: IKeyValue[]
@@ -19,7 +18,7 @@ const AppTable = ({
   return (
     <Table
       scroll={{ x: 1500, y: 300 }}
-      style={{ width: '100%' }}
+      style={{ width: '100%', }}
       columns={columns}
       dataSource={data}
       {...(loading ? { loading } : {})}

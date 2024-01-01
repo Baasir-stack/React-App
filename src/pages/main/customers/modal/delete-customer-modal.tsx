@@ -43,19 +43,20 @@ const DeleteCustomerModal = ({ open, setOpen, record }: IDeleteCustomerModal): J
       open={open}
       onCancel={() => setOpen(false)}
       confirmLoading={loading}
+      
       footer={[
-        <FooterWrapper key={'customer_footer'}>
-          <AppButtonWrapper loading={loading} onClick={() => setOpen(false)}>
+        <FooterWrapper key={'customer_footer'} style={{paddingBottom:"1rem"}}>
+          <AppButtonWrapper style={{width: "207px",backgroundColor:"#A5A5AF",color:"white"}} loading={loading} onClick={() => setOpen(false)}>
             CANCEL
           </AppButtonWrapper>
-          <AppButtonWrapper loading={loading} type='primary' onClick={handleSubmit}>
+          <AppButtonWrapper style={{width: "207px",backgroundColor:"#D80000"}} loading={loading} type='primary' onClick={handleSubmit}>
             DELETE
           </AppButtonWrapper>
         </FooterWrapper>
       ]}
     >
       <DeleteModalBodyWrapper>
-        <DeleteIconWrapper />
+        <DeleteIconWrapper  src={window.innerWidth >=767 ? '/assets/bigbin.png' :'/assets/bin.png'}/>
         <TypoGraphy level={3} value='Are you sure?' />
         <TypoGraphy
           style={{ marginBottom: '0' }}
